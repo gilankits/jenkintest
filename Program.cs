@@ -1,6 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World ankit test");
-
+app.MapGet("/vulnerable", (string data) =>
+                        {
+                            Console.WriteLine($"Received data: {data}");
+                            return "Received data";
+                        });
 app.Run();
